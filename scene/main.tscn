@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ol766vgigur7"]
+
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_2kdxh"]
+[ext_resource type="Texture2D" uid="uid://bpij8xygmvsrd" path="res://assets/Background_-_sky.png" id="2_p0rcw"]
+[ext_resource type="Texture2D" uid="uid://ckfw3ifxxrv8b" path="res://assets/Vague.png" id="3_skgu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grc26"]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_2kdxh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+color = Color(3.97079e-07, 0.275997, 0.277887, 1)
+polygon = PackedVector2Array(-576, -328, -576, 328, 576, 328, 576, -328)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_grc26")
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
+
+[node name="Transition" type="Sprite2D" parent="."]
+position = Vector2(-1196.35, 2.325)
+scale = Vector2(0.42693, 0.42693)
+texture = ExtResource("2_p0rcw")
+
+[node name="Wave" type="Sprite2D" parent="Transition"]
+position = Vector2(-2013.55, 69.5079)
+texture = ExtResource("3_skgu7")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="draw" from="Transition" to="." method="_on_transition_draw"]
+[connection signal="draw" from="Transition/Wave" to="." method="_on_wave_draw"]
