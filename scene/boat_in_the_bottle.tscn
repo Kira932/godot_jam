@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cghy75c8btdks"]
+[gd_scene load_steps=3 format=3 uid="uid://dpgtmdp2vuk2m"]
 
-[ext_resource type="Script" path="res://scripts/spot_the_difference.gd" id="1_g8yc5"]
-[ext_resource type="Script" path="res://scripts/difference_click.gd" id="2_tmdaa"]
+[ext_resource type="Script" path="res://scripts/drag_n_drop.gd" id="1_bhy5v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmpfb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obsho"]
 
-[node name="SpotTheDiff" type="Node2D"]
-script = ExtResource("1_g8yc5")
+[node name="BoatInTheBottle" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -16,15 +14,14 @@ polygon = PackedVector2Array(-576, -328, -576, 328, 576, 328, 576, -328)
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2, 2)
-script = ExtResource("2_tmdaa")
+script = ExtResource("1_bhy5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_lmpfb")
+shape = SubResource("RectangleShape2D_obsho")
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
-color = Color(0, 0, 0, 1)
+color = Color(0.329158, 0.329158, 0.329158, 1)
 polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
 
-[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

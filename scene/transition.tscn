@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ol766vgigur7"]
+
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_ub7sn"]
+[ext_resource type="Texture2D" uid="uid://bpij8xygmvsrd" path="res://assets/Background_-_sky.png" id="2_3ira6"]
+[ext_resource type="Texture2D" uid="uid://ckfw3ifxxrv8b" path="res://assets/Vague.png" id="3_wosdg"]
+
+[node name="Transition" type="Node2D"]
+script = ExtResource("1_ub7sn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+color = Color(3.97079e-07, 0.275997, 0.277887, 1)
+polygon = PackedVector2Array(-576, -328, -576, 328, 576, 328, 576, -328)
+
+[node name="Transition" type="Sprite2D" parent="."]
+position = Vector2(-1196.35, 2.325)
+scale = Vector2(0.42693, 0.42693)
+texture = ExtResource("2_3ira6")
+
+[node name="Wave" type="Sprite2D" parent="Transition"]
+position = Vector2(-2013.55, 69.5079)
+texture = ExtResource("3_wosdg")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="draw" from="Transition" to="." method="_on_transition_draw"]
+[connection signal="draw" from="Transition/Wave" to="." method="_on_wave_draw"]
