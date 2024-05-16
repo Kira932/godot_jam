@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://4f5wrjpp6rsb"]
 
 [node name="Baril" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+position = Vector2(-1.14441e-05, 0)
+scale = Vector2(1.67547, 1.57317)
+color = Color(3.97079e-07, 0.275997, 0.277887, 1)
+polygon = PackedVector2Array(-572.972, -345.798, -572.972, 345.798, 572.972, 345.798, 572.972, 0, 572.972, -345.798)

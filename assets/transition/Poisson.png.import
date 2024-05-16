@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckfw3ifxxrv8b"
-path="res://.godot/imported/Vague.png-0329817e4940935ebc501499c490721b.ctex"
+uid="uid://2rx2uffro2e3"
+path="res://.godot/imported/Poisson.png-920d707a89f274d6697f0b4bf3832f68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Vague.png"
-dest_files=["res://.godot/imported/Vague.png-0329817e4940935ebc501499c490721b.ctex"]
+source_file="res://assets/transition/Poisson.png"
+dest_files=["res://.godot/imported/Poisson.png-920d707a89f274d6697f0b4bf3832f68.ctex"]
 
 [params]
 

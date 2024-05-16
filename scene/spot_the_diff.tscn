@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cghy75c8btdks"]
+[gd_scene load_steps=6 format=3 uid="uid://cghy75c8btdks"]
 
 [ext_resource type="Script" path="res://scripts/spot_the_difference.gd" id="1_g8yc5"]
 [ext_resource type="Script" path="res://scripts/difference_click.gd" id="2_tmdaa"]
+[ext_resource type="Texture2D" uid="uid://1iia5wkgj40j" path="res://assets/spot_the_diff/Croix rouge.png" id="3_cyqhb"]
+[ext_resource type="Texture2D" uid="uid://cu4641ekb06tq" path="res://assets/spot_the_diff/Background carte.png" id="4_qgw2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmpfb"]
+size = Vector2(40, 40)
 
 [node name="SpotTheDiff" type="Node2D"]
 script = ExtResource("1_g8yc5")
@@ -11,20 +14,30 @@ script = ExtResource("1_g8yc5")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+position = Vector2(-1.14441e-05, 0)
+scale = Vector2(1.67547, 1.57317)
 color = Color(3.97079e-07, 0.275997, 0.277887, 1)
-polygon = PackedVector2Array(-576, -328, -576, 328, 576, 328, 576, -328)
+polygon = PackedVector2Array(-572.972, -345.798, -572.972, 345.798, 572.972, 345.798, 572.972, 0, 572.972, -345.798)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Map1" type="Sprite2D" parent="."]
+texture = ExtResource("4_qgw2i")
+
+[node name="Cross" type="Sprite2D" parent="Map1"]
+position = Vector2(496, -304)
+texture = ExtResource("3_cyqhb")
+
+[node name="Area2D" type="Area2D" parent="Map1"]
 scale = Vector2(2, 2)
 script = ExtResource("2_tmdaa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map1/Area2D"]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_lmpfb")
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
+[node name="Polygon2D" type="Polygon2D" parent="Map1/Area2D"]
+visible = false
+position = Vector2(4, 0)
+polygon = PackedVector2Array(-44, -40, -44, 40, 36, 40, 36, -40)
 
-[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="draw" from="Map1/Area2D" to="." method="_on_area_2d_draw"]
+[connection signal="input_event" from="Map1/Area2D" to="Map1/Area2D" method="_on_input_event"]

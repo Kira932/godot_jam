@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1jlguu3wnj26"
-path="res://.godot/imported/Contour_texte.png-605b7c872d07b72381b5665ac3784771.ctex"
+uid="uid://byg6javwiswxo"
+path="res://.godot/imported/Txt épreuve.png-a64d6a65361ad147b00a10d70df7b427.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Contour_texte.png"
-dest_files=["res://.godot/imported/Contour_texte.png-605b7c872d07b72381b5665ac3784771.ctex"]
+source_file="res://assets/transition/Txt épreuve.png"
+dest_files=["res://.godot/imported/Txt épreuve.png-a64d6a65361ad147b00a10d70df7b427.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpij8xygmvsrd"
-path="res://.godot/imported/Background_-_sky.png-3c08bc4dc5891fc2d77845f985556b75.ctex"
+uid="uid://co4tb3wmf1j1"
+path="res://.godot/imported/background.png-7c8c8893be10084295819c4a34196397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Background_-_sky.png"
-dest_files=["res://.godot/imported/Background_-_sky.png-3c08bc4dc5891fc2d77845f985556b75.ctex"]
+source_file="res://assets/boat_in_the_bottle/background.png"
+dest_files=["res://.godot/imported/background.png-7c8c8893be10084295819c4a34196397.ctex"]
 
 [params]
 

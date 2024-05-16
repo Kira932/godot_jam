@@ -1,27 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpgtmdp2vuk2m"]
+[gd_scene load_steps=9 format=3 uid="uid://dpgtmdp2vuk2m"]
 
-[ext_resource type="Script" path="res://scripts/drag_n_drop.gd" id="1_bhy5v"]
+[ext_resource type="Script" path="res://scripts/boat_in_the_bottle.gd" id="1_hqqlc"]
+[ext_resource type="Texture2D" uid="uid://co4tb3wmf1j1" path="res://assets/boat_in_the_bottle/background.png" id="1_swn3j"]
+[ext_resource type="Script" path="res://scripts/drag_n_drop.gd" id="2_flqb0"]
+[ext_resource type="Texture2D" uid="uid://bdswnlcacrj4h" path="res://assets/boat_in_the_bottle/Bateau.png" id="3_h0600"]
+[ext_resource type="Texture2D" uid="uid://d32mo8ktnpgxi" path="res://assets/boat_in_the_bottle/Bouteille.png" id="4_ccm6c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_obsho"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d00x"]
+size = Vector2(256, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5x2l"]
+size = Vector2(256, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbxei"]
+size = Vector2(104, 448)
 
 [node name="BoatInTheBottle" type="Node2D"]
+script = ExtResource("1_hqqlc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+position = Vector2(-1.14441e-05, 0)
+scale = Vector2(1.67547, 1.57317)
 color = Color(3.97079e-07, 0.275997, 0.277887, 1)
-polygon = PackedVector2Array(-576, -328, -576, 328, 576, 328, 576, -328)
+polygon = PackedVector2Array(-572.972, -345.798, -572.972, 345.798, 572.972, 345.798, 572.972, 0, 572.972, -345.798)
 
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(2, 2)
-script = ExtResource("1_bhy5v")
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_swn3j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_obsho")
+[node name="Boat" type="Area2D" parent="."]
+position = Vector2(-680, 0)
+script = ExtResource("2_flqb0")
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
-color = Color(0.329158, 0.329158, 0.329158, 1)
-polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
+[node name="Sprite2D" type="Sprite2D" parent="Boat"]
+texture = ExtResource("3_h0600")
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
+position = Vector2(8, 4)
+shape = SubResource("RectangleShape2D_1d00x")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Boat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat/RigidBody2D"]
+position = Vector2(8, 4)
+shape = SubResource("RectangleShape2D_f5x2l")
+
+[node name="Bottle" type="Sprite2D" parent="."]
+position = Vector2(480, 0)
+texture = ExtResource("4_ccm6c")
+
+[node name="Area2D" type="Area2D" parent="Bottle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottle/Area2D"]
+position = Vector2(316, 0)
+shape = SubResource("RectangleShape2D_sbxei")
+
+[connection signal="input_event" from="Boat" to="Boat" method="_on_input_event"]
+[connection signal="area_entered" from="Bottle/Area2D" to="." method="_on_boat_entered"]

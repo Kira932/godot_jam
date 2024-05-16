@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 var can_grab : bool = false
 var grabbed_offset = Vector2()
@@ -8,7 +8,8 @@ func _on_input_event(_viewport, event, _shape_idx):
 		print("grabbing")
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
-	
+	#if (event is InputEventMouseButton and event.is_action_released("click_left")):
+		#get_tree().change_scene_to_file("res://scene/transition.tscn")
 
 func _process(_delta):
 	if can_grab:
