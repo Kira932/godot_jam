@@ -8,8 +8,11 @@ func _on_input_event(_viewport, event, _shape_idx):
 		print("grabbing")
 		can_grab = event.pressed
 		grabbed_offset = position - get_global_mouse_position()
-	#if (event is InputEventMouseButton and event.is_action_released("click_left")):
-		#get_tree().change_scene_to_file("res://scene/transition.tscn")
+	if (event is InputEventMouseButton and event.is_action_released("click_left")):
+		print("release click")
+		if (Rect2($"../Bottle/Inside/CollisionShape2D".position, $"../Bottle/Inside/CollisionShape2D".shape.size).has_point(position)):
+			print("Inside valid")
+			get_tree().change_scene_to_file("res://scene/transition.tscn")
 
 func _process(_delta):
 	if can_grab:

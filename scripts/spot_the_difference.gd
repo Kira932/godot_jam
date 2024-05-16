@@ -1,11 +1,13 @@
 extends Node2D
 
+var timer
+
 func _input(event):
 	if (event is InputEventMouseButton) and event.pressed:
 		if !Rect2($Map1/Area2D.position, $Map1/Area2D/CollisionShape2D.shape.size).has_point(event.position):
 			print("outside area")
 			GameController.life -= 1
-			get_tree().change_scene_to_file("res://scene/transition.tscn")
+			GameController.wait_timer(timer)
 
 
 func _on_area_2d_draw():

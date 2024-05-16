@@ -18,3 +18,7 @@ func game_controller(game):
 			get_tree().change_scene_to_file("res://scene/boat_in_the_bottle.tscn")
 		GAMES.BARIL:
 			get_tree().change_scene_to_file("res://scene/baril.tscn")
+
+func wait_timer(timer):
+	await timer.timeout
+	get_tree().change_scene_to_file("res://scene/transition.tscn")
