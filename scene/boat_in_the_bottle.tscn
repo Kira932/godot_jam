@@ -83,6 +83,7 @@ shape = SubResource("RectangleShape2D_j5btf")
 debug_color = Color(0.931964, 0.228725, 0.328113, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
 wait_time = 5.0
 one_shot = true
 autostart = true
@@ -90,3 +91,4 @@ autostart = true
 [connection signal="input_event" from="Boat" to="Boat" method="_on_input_event"]
 [connection signal="area_entered" from="Bottle/Right" to="." method="_on_boat_entered"]
 [connection signal="area_entered" from="Bottle/Upndown" to="." method="_on_upndown_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

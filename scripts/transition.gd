@@ -9,6 +9,23 @@ func _on_transition_draw():
 	
 	tween.tween_property($Transition, "position", current_pos + Vector2(offset, 0.0), 1.0).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_on_tween_complete)
+	
+	print("Life ", GameController.life)
+	match GameController.life:
+		3:
+			$Transition/Coin1.queue_free()
+		2:
+			$Transition/Coin1.queue_free()
+			$Transition/Coin2.queue_free()
+		1:
+			$Transition/Coin1.queue_free()
+			$Transition/Coin2.queue_free()
+			$Transition/Coin3.queue_free()
+		0:
+			$Transition/Coin1.queue_free()
+			$Transition/Coin2.queue_free()
+			$Transition/Coin3.queue_free()
+			$Transition/Coin4.queue_free()
 
 func _on_tween_complete():
 	await get_tree().create_timer(3.0).timeout
@@ -31,5 +48,14 @@ func _on_transition_complete():
 
 func _on_tree_entered():
 	GameController.game_selector += 1
-	GameController.game_selector = clamp(GameController.game_selector, 0, GameController.GAMES.size())
+	if (GameController.winning):
+		print("Winning")
+		GameController.count_win += 1
+	if (GameController.game_selector > 1): # should be GameController.GAMES.size()
+		GameController.game_selector = 0
+		if (GameController.count_win >= 2):
+			print("Speed up")
+			Engine.time_scale += 0.2
+			GameController.count_win = 0
 	print("Game selector ", GameController.game_selector)
+
