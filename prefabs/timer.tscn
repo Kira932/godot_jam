@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyiujtg00papl"]
+[gd_scene load_steps=12 format=3 uid="uid://cofyqdd7fmu16"]
 
-[ext_resource type="Texture2D" uid="uid://mdxs81g7hs5y" path="res://assets/Timer/Baril.png" id="1_tjawr"]
-[ext_resource type="Texture2D" uid="uid://ct22qmjjvb3ph" path="res://assets/Timer/Explosion.png" id="2_pafjq"]
-[ext_resource type="Texture2D" uid="uid://cg3t4kx7cgnhw" path="res://assets/Timer/Rope1.png" id="3_chqg2"]
-[ext_resource type="Texture2D" uid="uid://c7s36nmi8kj4a" path="res://assets/Timer/Rope2.png" id="4_8m5qm"]
-[ext_resource type="Texture2D" uid="uid://dlryffmyvlm6q" path="res://assets/Timer/Rope3.png" id="5_ri56p"]
-[ext_resource type="Texture2D" uid="uid://doet2qk6ancxw" path="res://assets/Timer/Rope4.png" id="6_kbfwt"]
-[ext_resource type="Texture2D" uid="uid://c52ygeb3cb3ql" path="res://assets/Timer/Rope5.png" id="7_qlj1k"]
+[ext_resource type="Texture2D" uid="uid://mdxs81g7hs5y" path="res://assets/Timer/Baril.png" id="1_1cs8t"]
+[ext_resource type="Texture2D" uid="uid://ct22qmjjvb3ph" path="res://assets/Timer/Explosion.png" id="2_4uydl"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="2_7ahao"]
+[ext_resource type="Texture2D" uid="uid://cg3t4kx7cgnhw" path="res://assets/Timer/Rope1.png" id="3_inwy0"]
+[ext_resource type="Texture2D" uid="uid://c7s36nmi8kj4a" path="res://assets/Timer/Rope2.png" id="4_y17e7"]
+[ext_resource type="Texture2D" uid="uid://dlryffmyvlm6q" path="res://assets/Timer/Rope3.png" id="5_1p5mw"]
+[ext_resource type="Texture2D" uid="uid://doet2qk6ancxw" path="res://assets/Timer/Rope4.png" id="6_22xap"]
+[ext_resource type="Texture2D" uid="uid://c52ygeb3cb3ql" path="res://assets/Timer/Rope5.png" id="7_ussrx"]
 
 [sub_resource type="Animation" id="Animation_wdf0l"]
 length = 0.001
@@ -165,43 +166,44 @@ _data = {
 "TimerAnim": SubResource("Animation_u5sxj")
 }
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Baril" type="Sprite2D" parent="."]
+[node name="Baril" type="Sprite2D"]
 position = Vector2(232.5, 925)
-texture = ExtResource("1_tjawr")
+texture = ExtResource("1_1cs8t")
+script = ExtResource("2_7ahao")
 
-[node name="Explosion" type="Sprite2D" parent="Baril"]
+[node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(5.5, -45)
-texture = ExtResource("2_pafjq")
+texture = ExtResource("2_4uydl")
 
-[node name="Rope1" type="Sprite2D" parent="Baril"]
+[node name="Rope1" type="Sprite2D" parent="."]
 position = Vector2(822, 62)
-texture = ExtResource("3_chqg2")
+texture = ExtResource("3_inwy0")
 
-[node name="Rope2" type="Sprite2D" parent="Baril"]
+[node name="Rope2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(621, 62)
-texture = ExtResource("4_8m5qm")
+texture = ExtResource("4_y17e7")
 
-[node name="Rope3" type="Sprite2D" parent="Baril"]
+[node name="Rope3" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(445, 62)
-texture = ExtResource("5_ri56p")
+texture = ExtResource("5_1p5mw")
 
-[node name="Rope4" type="Sprite2D" parent="Baril"]
+[node name="Rope4" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(291, 62)
-texture = ExtResource("6_kbfwt")
+texture = ExtResource("6_22xap")
 
-[node name="Rope5" type="Sprite2D" parent="Baril"]
+[node name="Rope5" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(183, 50)
-texture = ExtResource("7_qlj1k")
+texture = ExtResource("7_ussrx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Baril"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_8keee")
 }
+
+[connection signal="draw" from="." to="." method="_on_draw"]

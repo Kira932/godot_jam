@@ -57,5 +57,5 @@ func _on_tree_entered():
 			print("Speed up")
 			Engine.time_scale += 0.2
 			GameController.count_win = 0
-	print("Game selector ", GameController.game_selector)
+	print("Game sel	ector ", GameController.game_selector)
 

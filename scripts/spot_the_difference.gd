@@ -23,3 +23,4 @@ func _on_timer_timeout():
 		GameController.life -= 1
 		GameController.winning = false
 	GameController.to_transition()
+
