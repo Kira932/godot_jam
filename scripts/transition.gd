@@ -19,7 +19,7 @@ func _on_tween_complete():
 	tween.tween_callback(_on_transition_complete)
 
 func _on_wave_draw():
-	$Transition/Wave/AnimationPlayer.play("VagueAnim")
+	$Wave/AnimationPlayer.play("VagueAnim")
 	
 
 func _on_transition_complete():
