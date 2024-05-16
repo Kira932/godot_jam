@@ -3,10 +3,16 @@ extends Node2D
 func _on_boat_entered(area):
 	print("collision")
 	if (area == $Boat):
-		pass
+		GameController.life -= 1
+		$Boat.can_grab = false
+		await $Timer.timeout
+		GameController.to_transition()
 
 
 func _on_upndown_area_entered(area):
 	print("collision")
 	if (area == $Boat):
-		pass
+		GameController.life -= 1
+		$Boat.can_grab = false
+		await $Timer.timeout
+		GameController.to_transition()

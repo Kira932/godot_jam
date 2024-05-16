@@ -1,13 +1,15 @@
 extends Node2D
 
-var timer
+var one_time : bool = true
 
 func _input(event):
-	if (event is InputEventMouseButton) and event.pressed:
+	if (event is InputEventMouseButton) and event.pressed and one_time:
 		if !Rect2($Map1/Area2D.position, $Map1/Area2D/CollisionShape2D.shape.size).has_point(event.position):
-			print("outside area")
+			print("Invalid click")
+			one_time = false
 			GameController.life -= 1
-			GameController.wait_timer(timer)
+			await $Timer.timeout
+			GameController.to_transition()
 
 
 func _on_area_2d_draw():
