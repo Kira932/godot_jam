@@ -5,6 +5,7 @@ func _on_boat_entered(area):
 	if (area == $Boat):
 		GameController.life -= 1
 		$Boat.can_grab = false
+		$Boat.one_time = false
 		await $Timer.timeout
 		GameController.to_transition()
 
@@ -14,5 +15,6 @@ func _on_upndown_area_entered(area):
 	if (area == $Boat):
 		GameController.life -= 1
 		$Boat.can_grab = false
+		$Boat.one_time = false
 		await $Timer.timeout
 		GameController.to_transition()
