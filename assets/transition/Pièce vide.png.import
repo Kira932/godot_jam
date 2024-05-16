@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gyj478hmaao2"
-path="res://.godot/imported/Baril.png-39268e85e3add4439cc4416b71fc7133.ctex"
+uid="uid://bim2scg0djl0k"
+path="res://.godot/imported/Pièce vide.png-909561fc21fa6c696ab88215664ba932.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Baril.png"
-dest_files=["res://.godot/imported/Baril.png-39268e85e3add4439cc4416b71fc7133.ctex"]
+source_file="res://assets/transition/Pièce vide.png"
+dest_files=["res://.godot/imported/Pièce vide.png-909561fc21fa6c696ab88215664ba932.ctex"]
 
 [params]
 
