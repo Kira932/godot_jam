@@ -19,18 +19,8 @@ func _on_tween_complete():
 	tween.tween_callback(_on_transition_complete)
 
 func _on_wave_draw():
-	var tween : Tween = create_tween()
-	var current_pos = $Transition/Wave.position
+	$Transition/Wave/AnimationPlayer.play("VagueAnim")
 	
-	tween.tween_property($Transition/Wave, "position", current_pos + Vector2(offset, 0.0), 1.0).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(_on_wave_end)
-	
-
-func _on_wave_end():
-	await get_tree().create_timer(2.5).timeout	
-	var tween : Tween = create_tween()
-	var current_pos = $Transition/Wave.position
-	tween.tween_property($Transition/Wave, "position", current_pos + Vector2(offset + 600, 0.0), 1.0).set_trans(Tween.TRANS_SINE)
 
 func _on_transition_complete():
 	print("change to game")

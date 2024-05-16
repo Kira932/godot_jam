@@ -12,11 +12,12 @@ func _on_input_event(_viewport, event, _shape_idx):
 		grabbed_offset = position - get_global_mouse_position()
 	if (event is InputEventMouseButton and event.is_action_released("click_left") and one_time):
 		print("Invalid drop")
-		GameController.life -= 1
 		one_time = false
 		can_grab = false
 		if (Rect2($"../Bottle/Inside/CollisionShape2D".position, $"../Bottle/Inside/CollisionShape2D".shape.size).has_point(position)):
 			print("Valid drop")
+		else:
+			GameController.life -= 1
 		await $"../Timer".timeout
 		GameController.to_transition()
 
