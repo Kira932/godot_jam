@@ -16,11 +16,15 @@ func _on_transition_draw():
 		1:
 			$HPPLayer.play("HpAnim_1HP")
 		0:
-			pass
+			$HPPLayer.play("HpAnim_Death")
+			$TransitonPlayer.play("TransitionDeath")
 
 func _on_transiton_player_animation_finished(anim_name):
 	print("change to game")
-	GameController.game_controller(GameController.game_selector)
+	if (anim_name == "TransitionDeath"):
+		get_tree().quit()
+	else:
+		GameController.game_controller(GameController.game_selector)
 	
 func _on_tree_entered():
 	GameController.game_selector += 1

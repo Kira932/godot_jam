@@ -10,9 +10,6 @@ enum GAMES {
 	BOAT
 }
 
-func _process(_delta):
-	game_over()
-
 func game_controller(game):
 	game_selector = game
 	match game_selector:
@@ -24,6 +21,6 @@ func game_controller(game):
 func to_transition():
 	get_tree().change_scene_to_file("res://scene/transition.tscn")
 
-func game_over():
-	if (life == 0):
-		get_tree().change_scene_to_file("res://scene/game_over.tscn")
+#func game_over():
+	#if (life == 0):
+		#get_tree().change_scene_to_file("res://scene/game_over.tscn")
