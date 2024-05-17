@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cghy75c8btdks"]
+[gd_scene load_steps=10 format=3 uid="uid://cghy75c8btdks"]
 
 [ext_resource type="Script" path="res://scripts/spot_the_difference.gd" id="1_g8yc5"]
 [ext_resource type="Texture2D" uid="uid://1iia5wkgj40j" path="res://assets/spot_the_diff/Croix rouge.png" id="3_cyqhb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3u16t6kx7tj1" path="res://assets/spot_the_diff/Coffre trésor.png" id="5_1xpnp"]
 [ext_resource type="PackedScene" uid="uid://cofyqdd7fmu16" path="res://prefabs/timer.tscn" id="5_u07d4"]
 [ext_resource type="Texture2D" uid="uid://dqawkh0k044g8" path="res://assets/spot_the_diff/Chaussette salle.png" id="6_2t0cv"]
+[ext_resource type="Texture2D" uid="uid://c5hacf7agqj6r" path="res://assets/spot_the_diff/Txt indication.png" id="7_cdwi5"]
 
 [sub_resource type="GDScript" id="GDScript_6yjsn"]
 script/source = "extends Area2D
@@ -69,6 +70,11 @@ texture = ExtResource("6_2t0cv")
 
 [node name="Baril" parent="." instance=ExtResource("5_u07d4")]
 position = Vector2(-792, 424)
+
+[node name="Indication" type="Sprite2D" parent="."]
+position = Vector2(-680, -480)
+scale = Vector2(0.454023, 0.454023)
+texture = ExtResource("7_cdwi5")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpgtmdp2vuk2m"]
+[gd_scene load_steps=13 format=3 uid="uid://dpgtmdp2vuk2m"]
 
 [ext_resource type="Script" path="res://scripts/boat_in_the_bottle.gd" id="1_hqqlc"]
 [ext_resource type="Texture2D" uid="uid://co4tb3wmf1j1" path="res://assets/boat_in_the_bottle/background.png" id="1_swn3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdswnlcacrj4h" path="res://assets/boat_in_the_bottle/Bateau.png" id="3_h0600"]
 [ext_resource type="Texture2D" uid="uid://d32mo8ktnpgxi" path="res://assets/boat_in_the_bottle/Bouteille.png" id="4_ccm6c"]
 [ext_resource type="PackedScene" uid="uid://cofyqdd7fmu16" path="res://prefabs/timer.tscn" id="6_80qbt"]
+[ext_resource type="Texture2D" uid="uid://dc8qvtj7ou4od" path="res://assets/boat_in_the_bottle/txt indication.png" id="7_1fbpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d00x"]
 size = Vector2(256, 296)
@@ -83,14 +84,19 @@ position = Vector2(272, -216)
 shape = SubResource("RectangleShape2D_j5btf")
 debug_color = Color(0.931964, 0.228725, 0.328113, 0.42)
 
+[node name="Baril" parent="." instance=ExtResource("6_80qbt")]
+position = Vector2(-728, 384)
+
+[node name="Indication" type="Sprite2D" parent="."]
+position = Vector2(-653.79, -452.5)
+scale = Vector2(0.464602, 0.464602)
+texture = ExtResource("7_1fbpe")
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 5.0
 one_shot = true
 autostart = true
-
-[node name="Baril" parent="." instance=ExtResource("6_80qbt")]
-position = Vector2(-728, 384)
 
 [connection signal="input_event" from="Boat" to="Boat" method="_on_input_event"]
 [connection signal="area_entered" from="Bottle/Right" to="." method="_on_boat_entered"]
