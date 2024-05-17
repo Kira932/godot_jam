@@ -10,12 +10,14 @@ func _process(delta):
 			$Map1/ClickValid.position = get_global_mouse_position()
 			$Map1/ClickValid.visible = true
 			GameController.winning = true
+			$Win.play()
 		elif (mouse_inside == false):
 			print("Invalid click")
 			$Map1/ClickFail.position = get_global_mouse_position()
 			$Map1/ClickFail.visible = true
 			GameController.life -= 1
 			GameController.winning = false
+			$Lose.play()
 		one_time = false
 		await $Timer.timeout
 		GameController.to_transition()
@@ -41,4 +43,5 @@ func _on_timer_timeout():
 	if (one_time):
 		GameController.life -= 1
 		GameController.winning = false
+		$Lose.play()
 	GameController.to_transition()

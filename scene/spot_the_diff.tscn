@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cghy75c8btdks"]
+[gd_scene load_steps=12 format=3 uid="uid://cghy75c8btdks"]
 
 [ext_resource type="Script" path="res://scripts/spot_the_difference.gd" id="1_g8yc5"]
 [ext_resource type="Texture2D" uid="uid://1iia5wkgj40j" path="res://assets/spot_the_diff/Croix rouge.png" id="3_cyqhb"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cofyqdd7fmu16" path="res://prefabs/timer.tscn" id="5_u07d4"]
 [ext_resource type="Texture2D" uid="uid://dqawkh0k044g8" path="res://assets/spot_the_diff/Chaussette salle.png" id="6_2t0cv"]
 [ext_resource type="Texture2D" uid="uid://c5hacf7agqj6r" path="res://assets/spot_the_diff/Txt indication.png" id="7_cdwi5"]
+[ext_resource type="AudioStream" uid="uid://bliluou3mc1ns" path="res://audios/Level_Up_Sound_Effect.mp3" id="8_galck"]
+[ext_resource type="AudioStream" uid="uid://du66jy4qrrs4t" path="res://audios/Video_Game_Lose_Sound_Effect_No_Copyright_Funny_Game_Lose_Tone.mp3" id="9_dli8h"]
 
 [sub_resource type="GDScript" id="GDScript_6yjsn"]
 script/source = "extends Area2D
@@ -81,6 +83,12 @@ process_callback = 0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_galck")
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_dli8h")
 
 [connection signal="draw" from="Map1/Cross" to="." method="_on_cross_draw"]
 [connection signal="input_event" from="Map1/Area2D" to="Map1/Area2D" method="_on_input_event"]

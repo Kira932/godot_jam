@@ -16,12 +16,14 @@ func _on_input_event(_viewport, event, _shape_idx):
 		if (Rect2($"../Bottle/Inside/CollisionShape2D".position, $"../Bottle/Inside/CollisionShape2D".shape.size).has_point(position)):
 			print("Valid drop")
 			GameController.winning = true
-			$"../Win".visible = true
+			$"../Valid".visible = true
+			$"../Win".play()
 		else:
 			print("Invalid drop")
 			GameController.life -= 1
 			GameController.winning = false
 			$"../Fail".visible = true
+			$"../Lose".play()
 		await $"../Timer".timeout
 		GameController.to_transition()
 
