@@ -4,9 +4,8 @@ var offset : int = 0
 
 func _on_transition_draw():
 	$TransitonPlayer.play("VagueAnim")
-	$WavePlayer.play(2.2)
-	if $WavePlayer.get_playback_position() >= 4.5:
-		$WavePlayer.stop()
+	$WavePlayer.play()
+	
 	print("Life ", GameController.life)
 	match GameController.life:
 		4:
