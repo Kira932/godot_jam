@@ -7,12 +7,14 @@ func _on_transition_draw():
 	
 	print("Life ", GameController.life)
 	match GameController.life:
+		4:
+			$HPPLayer.play("HpAnim")
 		3:
-			pass
+			$HPPLayer.play("HpAnim_3HP")
 		2:
-			pass
+			$HPPLayer.play("HpAnim_2HP")
 		1:
-			pass
+			$HPPLayer.play("HpAnim_1HP")
 		0:
 			pass
 
