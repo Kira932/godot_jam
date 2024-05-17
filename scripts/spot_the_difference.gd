@@ -1,18 +1,32 @@
 extends Node2D
 
-func _input(event):
-	if (event is InputEventMouseButton and event.pressed and $Map1/Area2D.check_other):
-		if !Rect2($Map1/Area2D.global_position, $Map1/Area2D/CollisionShape2D.shape.size).has_point(get_global_mouse_position()):
+var one_time : bool = true
+var mouse_inside : bool = false
+
+func _process(delta):
+	if (Input.is_action_just_pressed("click_left") and one_time):
+		if (mouse_inside):
+			print("Valid click")
+			$Map1/ClickValid.position = get_global_mouse_position()
+			$Map1/ClickValid.visible = true
+			GameController.winning = true
+		elif (mouse_inside == false):
 			print("Invalid click")
-			$ClickCross.position = get_global_mouse_position()
-			$ClickCross.visible = true
-			$Map1/Area2D.check_other = false
+			$Map1/ClickFail.position = get_global_mouse_position()
+			$Map1/ClickFail.visible = true
 			GameController.life -= 1
 			GameController.winning = false
-			await $Timer.timeout
-			GameController.to_transition()
+		one_time = false
+		await $Timer.timeout
+		GameController.to_transition()
+		
 
+func _on_area_2d_mouse_entered():
+	mouse_inside = true
 
+func _on_area_2d_mouse_exited():
+	mouse_inside = false
+	
 func _on_cross_draw():
 	var rng = RandomNumberGenerator.new()
 	var randX = rng.randf_range(200, 680)
@@ -24,7 +38,7 @@ func _on_cross_draw():
 
 
 func _on_timer_timeout():
-	if ($Map1/Area2D.one_time):
+	if (one_time):
 		GameController.life -= 1
 		GameController.winning = false
 	GameController.to_transition()
