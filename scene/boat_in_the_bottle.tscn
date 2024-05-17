@@ -23,7 +23,7 @@ size = Vector2(256, 296)
 size = Vector2(72, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yv5cw"]
-size = Vector2(625, 20)
+size = Vector2(595.75, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5btf"]
 size = Vector2(544, 448)
@@ -72,13 +72,13 @@ shape = SubResource("RectangleShape2D_sbxei")
 [node name="Upndown" type="Area2D" parent="Bottle"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottle/Upndown"]
-position = Vector2(7.5, -236)
+position = Vector2(17.875, -236)
 shape = SubResource("RectangleShape2D_yv5cw")
 
 [node name="Upndown2" type="Area2D" parent="Bottle"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottle/Upndown2"]
-position = Vector2(16, 232)
+position = Vector2(20.25, 232)
 shape = SubResource("RectangleShape2D_yv5cw")
 
 [node name="Inside" type="Area2D" parent="Bottle"]
@@ -130,6 +130,7 @@ volume_db = 3.0
 [connection signal="input_event" from="Boat" to="Boat" method="_on_input_event"]
 [connection signal="area_entered" from="Bottle/Right" to="." method="_on_boat_entered"]
 [connection signal="area_entered" from="Bottle/Upndown" to="." method="_on_upndown_area_entered"]
+[connection signal="area_entered" from="Bottle/Upndown2" to="." method="_on_upndown_2_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Boat" method="_on_timer_timeout"]
 [connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]
