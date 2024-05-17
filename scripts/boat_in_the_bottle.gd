@@ -7,6 +7,7 @@ func _on_boat_entered(area):
 		GameController.winning = false
 		$Boat.can_grab = false
 		$Boat.one_time = false
+		$Fail.visible = true
 		await $Timer.timeout
 		GameController.to_transition()
 
@@ -18,6 +19,7 @@ func _on_upndown_area_entered(area):
 		GameController.winning = false
 		$Boat.can_grab = false
 		$Boat.one_time = false
+		$Fail.visible = true
 		await $Timer.timeout
 		GameController.to_transition()
 

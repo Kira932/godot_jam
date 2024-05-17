@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpgtmdp2vuk2m"]
+[gd_scene load_steps=15 format=3 uid="uid://dpgtmdp2vuk2m"]
 
 [ext_resource type="Script" path="res://scripts/boat_in_the_bottle.gd" id="1_hqqlc"]
 [ext_resource type="Texture2D" uid="uid://co4tb3wmf1j1" path="res://assets/boat_in_the_bottle/background.png" id="1_swn3j"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d32mo8ktnpgxi" path="res://assets/boat_in_the_bottle/Bouteille.png" id="4_ccm6c"]
 [ext_resource type="PackedScene" uid="uid://cofyqdd7fmu16" path="res://prefabs/timer.tscn" id="6_80qbt"]
 [ext_resource type="Texture2D" uid="uid://dc8qvtj7ou4od" path="res://assets/boat_in_the_bottle/txt indication.png" id="7_1fbpe"]
+[ext_resource type="Texture2D" uid="uid://cau6xc2rbf8fw" path="res://assets/boat_in_the_bottle/Lose bateau.png" id="8_7cff0"]
+[ext_resource type="Texture2D" uid="uid://cafnphc1qd71u" path="res://assets/boat_in_the_bottle/Win bateau.png" id="9_4rgnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d00x"]
 size = Vector2(256, 296)
@@ -91,6 +93,18 @@ position = Vector2(-728, 384)
 position = Vector2(-653.79, -452.5)
 scale = Vector2(0.464602, 0.464602)
 texture = ExtResource("7_1fbpe")
+
+[node name="Fail" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(717.574, 165.375)
+scale = Vector2(0.289506, 0.289506)
+texture = ExtResource("8_7cff0")
+
+[node name="Win" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(715.375, 170.5)
+scale = Vector2(0.198148, 0.198148)
+texture = ExtResource("9_4rgnn")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
