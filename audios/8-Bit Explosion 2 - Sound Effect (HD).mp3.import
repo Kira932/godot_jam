@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0jww0aktcho6"
+path="res://.godot/imported/8-Bit Explosion 2 - Sound Effect (HD).mp3-73cff145e2a2acbf6e3ddc2a2e6414d3.mp3str"
+
+[deps]
+
+source_file="res://audios/8-Bit Explosion 2 - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/8-Bit Explosion 2 - Sound Effect (HD).mp3-73cff145e2a2acbf6e3ddc2a2e6414d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

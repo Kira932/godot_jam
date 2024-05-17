@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dc8qvtj7ou4od" path="res://assets/boat_in_the_bottle/txt indication.png" id="7_1fbpe"]
 [ext_resource type="Texture2D" uid="uid://cau6xc2rbf8fw" path="res://assets/boat_in_the_bottle/Lose bateau.png" id="8_7cff0"]
 [ext_resource type="Texture2D" uid="uid://cafnphc1qd71u" path="res://assets/boat_in_the_bottle/Win bateau.png" id="9_4rgnn"]
-[ext_resource type="AudioStream" uid="uid://c3dxu4784edo3" path="res://audios/Explosions, Designed, Loud Powerful Blast, Heavy impact, Deep Rumble, Subtle Wooden Debris, Low Explosion Sweetener 03 SND59003 1.wav" id="10_g6dvx"]
+[ext_resource type="AudioStream" uid="uid://b0jww0aktcho6" path="res://audios/8-Bit Explosion 2 - Sound Effect (HD).mp3" id="10_ixbi5"]
 [ext_resource type="AudioStream" uid="uid://bliluou3mc1ns" path="res://audios/Level_Up_Sound_Effect.mp3" id="10_k2fdv"]
 [ext_resource type="AudioStream" uid="uid://du66jy4qrrs4t" path="res://audios/Video_Game_Lose_Sound_Effect_No_Copyright_Funny_Game_Lose_Tone.mp3" id="11_332io"]
 
@@ -116,12 +116,12 @@ one_shot = true
 autostart = true
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_g6dvx")
-volume_db = 2.0
+stream = ExtResource("10_ixbi5")
+volume_db = 6.0
 
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_k2fdv")
-volume_db = 3.0
+volume_db = 12.0
 
 [node name="Lose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_332io")
