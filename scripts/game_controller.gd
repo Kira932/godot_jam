@@ -21,6 +21,3 @@ func game_controller(game):
 func to_transition():
 	get_tree().change_scene_to_file("res://scene/transition.tscn")
 
-#func game_over():
-	#if (life == 0):
-		#get_tree().change_scene_to_file("res://scene/game_over.tscn")

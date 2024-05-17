@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7or7juebncav"]
+
+[ext_resource type="AudioStream" uid="uid://chag52ns841bq" path="res://audios/Super Mario 64 - Water Theme  Dire Dire Docks - HD.mp3" id="1_xn0wp"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_xn0wp")
+volume_db = 8.0
+autoplay = true

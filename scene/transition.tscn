@@ -1610,7 +1610,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8n16j")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="WavePlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_fctmf")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
