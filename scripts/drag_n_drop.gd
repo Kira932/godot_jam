@@ -25,7 +25,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 			$"../Fail".visible = true
 			$"../Lose".play()
 		await $"../Timer".timeout
-		GameController.to_transition()
+		
 
 func _process(_delta):
 	if can_grab:

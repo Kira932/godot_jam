@@ -42,6 +42,28 @@ func play_transition():
 			$TransitonPlayer.play("VagueAnim_9")
 		10:
 			$TransitonPlayer.play("VagueAnim_10")
+		11:
+			$TransitonPlayer.play("VagueAnim_11")
+		12:
+			$TransitonPlayer.play("VagueAnim_12")
+		13:
+			$TransitonPlayer.play("VagueAnim_13")
+		14:
+			$TransitonPlayer.play("VagueAnim_14")
+		15:
+			$TransitonPlayer.play("VagueAnim_15")
+		16:
+			$TransitonPlayer.play("VagueAnim_16")
+		17:
+			$TransitonPlayer.play("VagueAnim_17")
+		18:
+			$TransitonPlayer.play("VagueAnim_18")
+		19:
+			$TransitonPlayer.play("VagueAnim_19")
+		20:
+			$TransitonPlayer.play("VagueAnim_20")
+		_:
+			$TransitonPlayer.play("VagueAnim_21")
 
 func _on_transiton_player_animation_finished(anim_name):
 	print("change to game")

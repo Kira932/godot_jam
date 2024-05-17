@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpgtmdp2vuk2m"]
+[gd_scene load_steps=18 format=3 uid="uid://dpgtmdp2vuk2m"]
 
 [ext_resource type="Script" path="res://scripts/boat_in_the_bottle.gd" id="1_hqqlc"]
 [ext_resource type="Texture2D" uid="uid://co4tb3wmf1j1" path="res://assets/boat_in_the_bottle/background.png" id="1_swn3j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dc8qvtj7ou4od" path="res://assets/boat_in_the_bottle/txt indication.png" id="7_1fbpe"]
 [ext_resource type="Texture2D" uid="uid://cau6xc2rbf8fw" path="res://assets/boat_in_the_bottle/Lose bateau.png" id="8_7cff0"]
 [ext_resource type="Texture2D" uid="uid://cafnphc1qd71u" path="res://assets/boat_in_the_bottle/Win bateau.png" id="9_4rgnn"]
+[ext_resource type="AudioStream" uid="uid://c3dxu4784edo3" path="res://audios/Explosions, Designed, Loud Powerful Blast, Heavy impact, Deep Rumble, Subtle Wooden Debris, Low Explosion Sweetener 03 SND59003 1.wav" id="10_g6dvx"]
 [ext_resource type="AudioStream" uid="uid://bliluou3mc1ns" path="res://audios/Level_Up_Sound_Effect.mp3" id="10_k2fdv"]
 [ext_resource type="AudioStream" uid="uid://du66jy4qrrs4t" path="res://audios/Video_Game_Lose_Sound_Effect_No_Copyright_Funny_Game_Lose_Tone.mp3" id="11_332io"]
 
@@ -114,15 +115,22 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_g6dvx")
+volume_db = 2.0
+
 [node name="Win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_k2fdv")
-volume_db = 5.0
+volume_db = 3.0
 
 [node name="Lose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_332io")
-volume_db = 5.0
+volume_db = 3.0
 
 [connection signal="input_event" from="Boat" to="Boat" method="_on_input_event"]
 [connection signal="area_entered" from="Bottle/Right" to="." method="_on_boat_entered"]
 [connection signal="area_entered" from="Bottle/Upndown" to="." method="_on_upndown_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Boat" method="_on_timer_timeout"]
+[connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]
+[connection signal="finished" from="Explosion" to="Boat" method="_on_explosion_finished"]

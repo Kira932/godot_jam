@@ -20,7 +20,6 @@ func _process(delta):
 			$Lose.play()
 		one_time = false
 		await $Timer.timeout
-		GameController.to_transition()
 		
 
 func _on_area_2d_mouse_entered():
@@ -43,5 +42,8 @@ func _on_timer_timeout():
 	if (one_time):
 		GameController.life -= 1
 		GameController.winning = false
-		$Lose.play()
+	$Explosion.play()
+
+
+func _on_explosion_finished():
 	GameController.to_transition()
