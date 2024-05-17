@@ -13,8 +13,13 @@ func _input(event):
 			GameController.to_transition()
 
 
-func _on_area_2d_draw():
-	$Map1/Area2D.global_position.x -= $Map1/Cross.global_position.x
+func _on_cross_draw():
+	var rng = RandomNumberGenerator.new()
+	var randX = rng.randf_range(200, 680)
+	var randY = rng.randf_range(-350, 280)
+	$Map1/Cross.position = Vector2(randX, randY)
+	$Map1/Area2D.position.x -= (960 - $Map1/Cross.position.x)
+	print($Map1/Area2D.position.x)
 	$Map1/Area2D.position.y = $Map1/Cross.position.y
 
 
@@ -23,4 +28,3 @@ func _on_timer_timeout():
 		GameController.life -= 1
 		GameController.winning = false
 	GameController.to_transition()
-

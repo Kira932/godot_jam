@@ -24,12 +24,17 @@ polygon = PackedVector2Array(-572.972, -345.798, -572.972, 345.798, 572.972, 345
 texture = ExtResource("4_qgw2i")
 
 [node name="Cross" type="Sprite2D" parent="Map1"]
-position = Vector2(496, -304)
+position = Vector2(960, -24)
 texture = ExtResource("3_cyqhb")
 
 [node name="Area2D" type="Area2D" parent="Map1"]
 scale = Vector2(2, 2)
 script = ExtResource("2_tmdaa")
+
+[node name="ClickFail" type="Sprite2D" parent="Map1/Area2D"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cyqhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map1/Area2D"]
 scale = Vector2(2, 2)
@@ -37,12 +42,9 @@ shape = SubResource("RectangleShape2D_lmpfb")
 debug_color = Color(0.591559, 0.375261, 1, 0.42)
 
 [node name="Polygon2D" type="Polygon2D" parent="Map1/Area2D"]
+visible = false
 position = Vector2(4, 0)
 polygon = PackedVector2Array(-44, -40, -44, 40, 36, 40, 36, -40)
-
-[node name="ClickCross" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_cyqhb")
 
 [node name="Baril" parent="." instance=ExtResource("5_u07d4")]
 position = Vector2(-792, 424)
@@ -53,7 +55,7 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="draw" from="Map1/Area2D" to="." method="_on_area_2d_draw"]
+[connection signal="draw" from="Map1/Cross" to="." method="_on_cross_draw"]
 [connection signal="input_event" from="Map1/Area2D" to="Map1/Area2D" method="_on_input_event"]
 [connection signal="draw" from="Baril" to="." method="_on_baril_draw"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

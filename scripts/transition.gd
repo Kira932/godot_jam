@@ -3,13 +3,6 @@ extends Node2D
 var offset : int = 0
 
 func _on_transition_draw():
-	var tween : Tween = create_tween()
-	var current_pos = $Transition.position
-	offset = abs($Transition.position.x)
-	
-	tween.tween_property($Transition, "position", current_pos + Vector2(offset, 0.0), 1.0).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(_on_tween_complete)
-	
 	print("Life ", GameController.life)
 	match GameController.life:
 		3:
@@ -26,14 +19,6 @@ func _on_transition_draw():
 			$Transition/Coin2.queue_free()
 			$Transition/Coin3.queue_free()
 			$Transition/Coin4.queue_free()
-
-func _on_tween_complete():
-	await get_tree().create_timer(3.0).timeout
-	var tween : Tween = create_tween()
-	var current_pos = $Transition.position
-	
-	tween.tween_property($Transition, "position", current_pos + Vector2(offset + 200, 0.0), 1.0).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(_on_transition_complete)
 
 func _on_wave_draw():
 	$Wave/AnimationPlayer.play("VagueAnim")
