@@ -1,10 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cghy75c8btdks"]
+[gd_scene load_steps=9 format=3 uid="uid://cghy75c8btdks"]
 
 [ext_resource type="Script" path="res://scripts/spot_the_difference.gd" id="1_g8yc5"]
-[ext_resource type="Script" path="res://scripts/difference_click.gd" id="2_tmdaa"]
 [ext_resource type="Texture2D" uid="uid://1iia5wkgj40j" path="res://assets/spot_the_diff/Croix rouge.png" id="3_cyqhb"]
 [ext_resource type="Texture2D" uid="uid://cu4641ekb06tq" path="res://assets/spot_the_diff/Background carte.png" id="4_qgw2i"]
+[ext_resource type="Texture2D" uid="uid://d3u16t6kx7tj1" path="res://assets/spot_the_diff/Coffre trésor.png" id="5_1xpnp"]
 [ext_resource type="PackedScene" uid="uid://cofyqdd7fmu16" path="res://prefabs/timer.tscn" id="5_u07d4"]
+[ext_resource type="Texture2D" uid="uid://dqawkh0k044g8" path="res://assets/spot_the_diff/Chaussette salle.png" id="6_2t0cv"]
+
+[sub_resource type="GDScript" id="GDScript_6yjsn"]
+script/source = "extends Area2D
+
+var one_time : bool = true
+var check_other : bool = true
+
+func _on_input_event(_viewport, event, _shape_idx):
+	if (event is InputEventMouseButton and one_time):
+		check_other = false
+		if (event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
+			pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmpfb"]
 size = Vector2(40, 40)
@@ -29,12 +43,7 @@ texture = ExtResource("3_cyqhb")
 
 [node name="Area2D" type="Area2D" parent="Map1"]
 scale = Vector2(2, 2)
-script = ExtResource("2_tmdaa")
-
-[node name="ClickFail" type="Sprite2D" parent="Map1/Area2D"]
-visible = false
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_cyqhb")
+script = SubResource("GDScript_6yjsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map1/Area2D"]
 scale = Vector2(2, 2)
@@ -45,6 +54,18 @@ debug_color = Color(0.591559, 0.375261, 1, 0.42)
 visible = false
 position = Vector2(4, 0)
 polygon = PackedVector2Array(-44, -40, -44, 40, 36, 40, 36, -40)
+
+[node name="ClickValid" type="Sprite2D" parent="Map1"]
+visible = false
+z_index = 1
+position = Vector2(1.90735e-06, 8)
+scale = Vector2(1.16667, 1.16667)
+texture = ExtResource("5_1xpnp")
+
+[node name="ClickFail" type="Sprite2D" parent="Map1"]
+visible = false
+z_index = 1
+texture = ExtResource("6_2t0cv")
 
 [node name="Baril" parent="." instance=ExtResource("5_u07d4")]
 position = Vector2(-792, 424)
@@ -57,5 +78,7 @@ autostart = true
 
 [connection signal="draw" from="Map1/Cross" to="." method="_on_cross_draw"]
 [connection signal="input_event" from="Map1/Area2D" to="Map1/Area2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="Map1/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Map1/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="draw" from="Baril" to="." method="_on_baril_draw"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

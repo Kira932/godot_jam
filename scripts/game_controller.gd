@@ -7,8 +7,7 @@ var count_win : int = 0
 
 enum GAMES {
 	DIFFERENCE,
-	BOAT,
-	BARIL
+	BOAT
 }
 
 func _process(_delta):
@@ -21,8 +20,6 @@ func game_controller(game):
 			get_tree().change_scene_to_file("res://scene/spot_the_diff.tscn")
 		GAMES.BOAT:
 			get_tree().change_scene_to_file("res://scene/boat_in_the_bottle.tscn")
-		#GAMES.BARIL:
-		#	get_tree().change_scene_to_file("res://scene/baril.tscn")
 
 func to_transition():
 	get_tree().change_scene_to_file("res://scene/transition.tscn")
