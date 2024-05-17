@@ -4,6 +4,7 @@ var game_selector : int = -1
 var life : int = 4
 var winning : bool = true
 var count_win : int = 0
+var score : int = 0
 
 enum GAMES {
 	DIFFERENCE,

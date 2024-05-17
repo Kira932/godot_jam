@@ -3,7 +3,7 @@ extends Node2D
 var offset : int = 0
 
 func _on_transition_draw():
-	$TransitonPlayer.play("VagueAnim")
+	play_transition()
 	$WavePlayer.play()
 	
 	print("Life ", GameController.life)
@@ -20,6 +20,29 @@ func _on_transition_draw():
 			$HPPLayer.play("HpAnim_Death")
 			$TransitonPlayer.play("TransitionDeath")
 
+func play_transition():
+	match GameController.score:
+		1:
+			$TransitonPlayer.play("VagueAnim")
+		2:
+			$TransitonPlayer.play("VagueAnim_2")
+		3:
+			$TransitonPlayer.play("VagueAnim_3")
+		4:
+			$TransitonPlayer.play("VagueAnim_4")
+		5:
+			$TransitonPlayer.play("VagueAnim_5")
+		6:
+			$TransitonPlayer.play("VagueAnim_6")
+		7:
+			$TransitonPlayer.play("VagueAnim_7")
+		8:
+			$TransitonPlayer.play("VagueAnim_8")
+		9:
+			$TransitonPlayer.play("VagueAnim_9")
+		10:
+			$TransitonPlayer.play("VagueAnim_10")
+
 func _on_transiton_player_animation_finished(anim_name):
 	print("change to game")
 	if (anim_name == "TransitionDeath"):
@@ -29,6 +52,7 @@ func _on_transiton_player_animation_finished(anim_name):
 	
 func _on_tree_entered():
 	GameController.game_selector += 1
+	GameController.score += 1
 	if (GameController.winning):
 		print("Winning")
 		GameController.count_win += 1
